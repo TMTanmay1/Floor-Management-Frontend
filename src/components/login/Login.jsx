@@ -38,7 +38,7 @@ const Login = () => {
       localStorage.setItem('_id', res.user._id, 86400000);
       toast.success('Login Successful');
       
-        if (res.user.role === 'sub-admin') {
+        if (res.user.role === 'sub-admin' || res.user.role === 'admin') {
             navigate('/admin-dash');
         }
 
