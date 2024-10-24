@@ -46,6 +46,10 @@ function Userdash() {
       console.error('Error fetching floors:', error);
     }
   };
+
+  useEffect(() => {
+    handleSearch();
+  }, []);
   
 
   console.log(floors);

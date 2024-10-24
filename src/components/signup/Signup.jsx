@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { TextField, Button, Box, Typography, Grid, Paper } from '@mui/material';
+import { TextField, Button, Box, Typography, Grid, Paper, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const apiURL = 'http://localhost:5050';
+const apiURL = process.env.REACT_APP_API_URL;
 
 const Signup = () => {
   const [data, setData] = useState({ name: '', role: '', password: '' });
@@ -106,16 +106,21 @@ const Signup = () => {
               value={data.name}
               onChange={handleChange}
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              label="Role"
-              name="role"
-              type="role"
-              value={data.role}
-              onChange={handleChange}
-            />
+            {/* Role Dropdown */}
+            <FormControl fullWidth margin="normal" required>
+              <InputLabel id="role-label">Role</InputLabel>
+              <Select
+                labelId="role-label"
+                name="role"
+                value={data.role}
+                onChange={handleChange}
+                label="Role"
+              >
+                <MenuItem value="admin">Admin</MenuItem>
+                <MenuItem value="sub-admin">Sub-Admin</MenuItem>
+                <MenuItem value="user">User</MenuItem>
+              </Select>
+            </FormControl>
             <TextField
               margin="normal"
               required

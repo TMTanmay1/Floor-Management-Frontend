@@ -5,7 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-const apiURL = 'http://localhost:5050';
+const apiURL = process.env.REACT_APP_API_URL;
 
 const Login = () => {
     const navigate = useNavigate();
