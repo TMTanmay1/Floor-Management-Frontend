@@ -40,6 +40,8 @@ const Login = () => {
       
         if (res.user.role === 'sub-admin' || res.user.role === 'admin') {
             navigate('/admin-dash');
+        } else if (res.user.role === 'user') {
+            navigate('/user-dash');
         }
 
     } catch (error) {
